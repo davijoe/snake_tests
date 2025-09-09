@@ -5,6 +5,12 @@ import pytest
 # Positive Tests
 #
 
+def test_add():
+    assert add(1, 2) == 3
+    assert add(-1, -1) == -2
+    assert add(0, 5) == 5
+
+
 def test_add_2_and_2_is_5():
     assert add(2, 3) == 5
 
