@@ -13,8 +13,8 @@ class TestSumBasic:
         assert sum(numbers) == 10
 
     def test_sum_basic(self):
-        assert sum(numbers) == 6 """
-    
+        assert sum(numbers) == 6 """ # This will fail because numbers is modified in test_sum_extra
+
 
 class TestSumFixture:
     def test_sum_extra(self, numbers):
