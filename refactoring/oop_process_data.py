@@ -21,9 +21,9 @@ class Extractor(ABC):
     def extract(self, data: Iterable[str]) -> List[int]: ...
 
 class Statistic(ABC):
-    def validate(self, numbers: Iterable[int]) -> None:
+    def validate(self, numbers: Iterable[int]) -> list[int]:
         if not numbers:
-            raise ValueError("No numbers to compute statistic.")
+            raise ValueError("No numbers to compute.")
         return numbers
 
     @abstractmethod
