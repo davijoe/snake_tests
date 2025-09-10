@@ -1,7 +1,8 @@
 """ Explanation:
 This OOP version of data_process.py follows SOLID principles: OCP / DIP / SRP.
 i.e.
-- Swap MeanStatistic for MedianStatistic or ModeStatistic without touching pipeline code (OCP/Strategy).
+- Swap MeanStatistic for MedianStatistic or ModeStatistic without touching 
+pipeline code (OCP/Strategy).
 - Replace PrintPresenter with a LoggerPresenter or JsonPresenter (DIP).
 - Each class has one responsibility (SRP).
 """
@@ -68,7 +69,8 @@ class PrintPresenter(Presenter):
 # --- Pipeline orchestrator ---
 #
 class DataPipeline:
-    def __init__(self, cleaner: Cleaner, extractor: Extractor, statistic: Statistic, presenter: Presenter | None = None):
+    def __init__(self, cleaner: Cleaner, extractor: Extractor, 
+                statistic: Statistic, presenter: Presenter | None = None):
         self.cleaner = cleaner
         self.extractor = extractor
         self.statistic = statistic
