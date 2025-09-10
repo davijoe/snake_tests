@@ -26,5 +26,8 @@ def calculate_average(numbers):
 def process_data(data):
     cleaned = clean_data(data)
     numbers = extract_numbers(cleaned)
-    average = calculate_average(numbers)
-    print(f"Average is {average}")
+    return calculate_average(numbers)
+
+# Presentation
+average = process_data([" 12", "  5", "abc", " 20 "])
+print(f"Average is {average}")
