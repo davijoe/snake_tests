@@ -20,8 +20,11 @@ def clean_data(data):
 def extract_numbers(data):
     return [int(x) for x in data if x.isdigit()]
 
+def calculate_average(numbers):
+    return sum(numbers) / len(numbers)
+
 def process_data(data):
     cleaned = clean_data(data)
     numbers = extract_numbers(cleaned)
-    average = sum(numbers) / len(numbers)
+    average = calculate_average(numbers)
     print(f"Average is {average}")
