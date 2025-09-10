@@ -21,6 +21,11 @@ class Extractor(ABC):
     def extract(self, data: Iterable[str]) -> List[int]: ...
 
 class Statistic(ABC):
+    def validate(self, numbers: Iterable[int]) -> None:
+        if not numbers:
+            raise ValueError("No numbers to compute statistic.")
+        return numbers
+
     @abstractmethod
     def compute(self, numbers: Iterable[int]) -> float: ...
 
@@ -45,6 +50,15 @@ class MeanStatistic(Statistic):
         if not nums:
             raise ValueError("No numbers to compute statistic.")
         return sum(nums) / len(nums)
+
+class MedianStatistic(Statistic):
+    def compute(self, numbers):
+        sorted_nums = sorted(numbers)
+        n = len(sorted_nums)
+        mid = n // 2
+        if n % 2 == 0:
+            return (sorted_nums[mid - 1] + sorted_nums[mid]) / 2
+        return sorted_nums[mid]
 
 class PrintPresenter(Presenter):
     def present(self, label: str, value: float) -> None:
@@ -74,7 +88,7 @@ class DataPipeline:
 pipeline = DataPipeline(
     cleaner=WhitespaceCleaner(),
     extractor=DigitStringToIntExtractor(),
-    statistic=MeanStatistic(),
+    statistic=MeanStatistic(), # Can be swapped for MedianStatistic
     presenter=PrintPresenter(),  # or None if you want pure compute
 )
 
