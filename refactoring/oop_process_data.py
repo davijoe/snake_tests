@@ -1,5 +1,3 @@
-
-# --- Explanation ---
 """ Explanation:
 This OOP version of data_process.py follows SOLID principles: OCP / DIP / SRP.
 i.e.
